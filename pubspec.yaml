@@ -1,0 +1,26 @@
+name: adstacks_dashboard
+description: "Adstacks Media office dashboard - Flutter responsive web/app project"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.9
+  google_fonts: ^8.1.0
+  fl_chart: ^1.2.0
+  table_calendar: ^3.2.0
+  intl: ^0.20.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
