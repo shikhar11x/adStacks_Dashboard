@@ -9,23 +9,49 @@ class AttendanceScreen extends StatefulWidget {
 }
 
 class _AttendanceScreenState extends State<AttendanceScreen> {
-  String _selectedEmployee = 'Pooja Mishra';
+  String _selectedEmployee = 'Shikhar Bajpai';
   final List<String> _employees = [
-    'Pooja Mishra', 'Rahul Sharma', 'Anjali Verma',
-    'Vikram Singh', 'Priya Nair', 'Amit Patel',
+    'Shikhar Bajpai',
+    'Rahul Sharma',
+    'Anjali Verma',
+    'Vikram Singh',
+    'Priya Nair',
+    'Amit Patel',
   ];
 
   // Simulated attendance: day -> status
   final Map<int, String> _attendance = {
-    1: 'P', 2: 'P', 3: 'P', 4: 'P', 5: 'P',
-    6: 'WO', 7: 'WO',
-    8: 'P', 9: 'P', 10: 'P', 11: 'A', 12: 'P',
-    13: 'WO', 14: 'WO',
-    15: 'P', 16: 'P', 17: 'L', 18: 'L', 19: 'P',
-    20: 'WO', 21: 'WO',
-    22: 'P', 23: 'P', 24: 'P', 25: 'P', 26: 'P',
-    27: 'WO', 28: 'WO',
-    29: 'P', 30: 'P', 31: 'P',
+    1: 'P',
+    2: 'P',
+    3: 'P',
+    4: 'P',
+    5: 'P',
+    6: 'WO',
+    7: 'WO',
+    8: 'P',
+    9: 'P',
+    10: 'P',
+    11: 'A',
+    12: 'P',
+    13: 'WO',
+    14: 'WO',
+    15: 'P',
+    16: 'P',
+    17: 'L',
+    18: 'L',
+    19: 'P',
+    20: 'WO',
+    21: 'WO',
+    22: 'P',
+    23: 'P',
+    24: 'P',
+    25: 'P',
+    26: 'P',
+    27: 'WO',
+    28: 'WO',
+    29: 'P',
+    30: 'P',
+    31: 'P',
   };
 
   @override
@@ -54,8 +80,12 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                 _employeeDropdown(),
                 const SizedBox(height: 12),
                 Wrap(
-                  spacing: 12, runSpacing: 12,
-                  children: statCards.map((c) => SizedBox(width: (constraints.maxWidth - 12) / 2, child: c)).toList(),
+                  spacing: 12,
+                  runSpacing: 12,
+                  children: statCards
+                      .map((c) => SizedBox(
+                          width: (constraints.maxWidth - 12) / 2, child: c))
+                      .toList(),
                 ),
               ],
             );
@@ -64,7 +94,10 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
             children: [
               SizedBox(width: 220, child: _employeeDropdown()),
               const SizedBox(width: 12),
-              ...statCards.expand((c) => [Expanded(child: c), if (c != statCards.last) const SizedBox(width: 12)]),
+              ...statCards.expand((c) => [
+                    Expanded(child: c),
+                    if (c != statCards.last) const SizedBox(width: 12)
+                  ]),
             ],
           );
         }),
@@ -75,7 +108,12 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(AppDims.cardRadius),
-            boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10, offset: const Offset(0, 4))],
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.05),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4))
+            ],
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,14 +143,19 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(AppDims.cardRadius),
-        boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 8)],
+        boxShadow: [
+          BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 8)
+        ],
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
           value: _selectedEmployee,
           isExpanded: true,
           icon: const Icon(Icons.keyboard_arrow_down_rounded),
-          items: _employees.map((e) => DropdownMenuItem(value: e, child: Text(e, style: AppTextStyles.body))).toList(),
+          items: _employees
+              .map((e) => DropdownMenuItem(
+                  value: e, child: Text(e, style: AppTextStyles.body)))
+              .toList(),
           onChanged: (v) => setState(() => _selectedEmployee = v!),
         ),
       ),
@@ -128,14 +171,20 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
     ];
     return Wrap(
       spacing: 12,
-      children: items.map((i) => Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(width: 10, height: 10, decoration: BoxDecoration(color: i.$3, shape: BoxShape.circle)),
-          const SizedBox(width: 4),
-          Text(i.$2, style: AppTextStyles.caption),
-        ],
-      )).toList(),
+      children: items
+          .map((i) => Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                      width: 10,
+                      height: 10,
+                      decoration:
+                          BoxDecoration(color: i.$3, shape: BoxShape.circle)),
+                  const SizedBox(width: 4),
+                  Text(i.$2, style: AppTextStyles.caption),
+                ],
+              ))
+          .toList(),
     );
   }
 
@@ -149,9 +198,14 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
       children: [
         // Day headers
         Row(
-          children: dayNames.map((d) => Expanded(
-            child: Center(child: Text(d, style: AppTextStyles.caption.copyWith(fontWeight: FontWeight.w700))),
-          )).toList(),
+          children: dayNames
+              .map((d) => Expanded(
+                    child: Center(
+                        child: Text(d,
+                            style: AppTextStyles.caption
+                                .copyWith(fontWeight: FontWeight.w700))),
+                  ))
+              .toList(),
         ),
         const SizedBox(height: 8),
         // Days grid
@@ -193,13 +247,20 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                 fg = AppColors.textSecondary;
             }
             return Container(
-              decoration: BoxDecoration(color: bg, borderRadius: BorderRadius.circular(8)),
+              decoration: BoxDecoration(
+                  color: bg, borderRadius: BorderRadius.circular(8)),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('$day', style: AppTextStyles.caption.copyWith(color: fg, fontWeight: FontWeight.w700)),
+                  Text('$day',
+                      style: AppTextStyles.caption
+                          .copyWith(color: fg, fontWeight: FontWeight.w700)),
                   if (status.isNotEmpty && status != 'WO')
-                    Text(status, style: TextStyle(fontSize: 9, color: fg, fontWeight: FontWeight.w600)),
+                    Text(status,
+                        style: TextStyle(
+                            fontSize: 9,
+                            color: fg,
+                            fontWeight: FontWeight.w600)),
                 ],
               ),
             );
@@ -211,7 +272,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
 
   Widget _buildTodayLog() {
     final logs = [
-      ('Pooja Mishra', '09:02 AM', '06:15 PM', 'Present'),
+      ('Shikhar Bajpai', '09:02 AM', '06:15 PM', 'Present'),
       ('Rahul Sharma', '09:30 AM', '06:45 PM', 'Present'),
       ('Anjali Verma', '—', '—', 'Absent'),
       ('Vikram Singh', '10:00 AM', '—', 'On Leave'),
@@ -221,7 +282,12 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(AppDims.cardRadius),
-        boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10, offset: const Offset(0, 4))],
+        boxShadow: [
+          BoxShadow(
+              color: Colors.black.withValues(alpha: 0.05),
+              blurRadius: 10,
+              offset: const Offset(0, 4))
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -233,24 +299,32 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
           const SizedBox(height: 12),
           const Divider(),
           ...logs.map((l) => Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            child: Row(
-              children: [
-                CircleAvatar(
-                  radius: 16,
-                  backgroundColor: AppColors.primaryPurple.withValues(alpha: 0.12),
-                  child: Text(l.$1[0], style: const TextStyle(color: AppColors.primaryPurple, fontWeight: FontWeight.w700, fontSize: 13)),
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 16,
+                      backgroundColor:
+                          AppColors.primaryPurple.withValues(alpha: 0.12),
+                      child: Text(l.$1[0],
+                          style: const TextStyle(
+                              color: AppColors.primaryPurple,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 13)),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                        child: Text(l.$1,
+                            style: AppTextStyles.bodyDark
+                                .copyWith(fontWeight: FontWeight.w600))),
+                    Text('In: ${l.$2}', style: AppTextStyles.caption),
+                    const SizedBox(width: 16),
+                    Text('Out: ${l.$3}', style: AppTextStyles.caption),
+                    const SizedBox(width: 16),
+                    _StatusPill(l.$4),
+                  ],
                 ),
-                const SizedBox(width: 12),
-                Expanded(child: Text(l.$1, style: AppTextStyles.bodyDark.copyWith(fontWeight: FontWeight.w600))),
-                Text('In: ${l.$2}', style: AppTextStyles.caption),
-                const SizedBox(width: 16),
-                Text('Out: ${l.$3}', style: AppTextStyles.caption),
-                const SizedBox(width: 16),
-                _StatusPill(l.$4),
-              ],
-            ),
-          )),
+              )),
         ],
       ),
     );
@@ -269,14 +343,21 @@ class _MiniStat extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(AppDims.cardRadius),
-        boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 8)],
+        boxShadow: [
+          BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 8)
+        ],
       ),
       child: Row(
         children: [
-          Container(width: 10, height: 36, decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(4))),
+          Container(
+              width: 10,
+              height: 36,
+              decoration: BoxDecoration(
+                  color: color, borderRadius: BorderRadius.circular(4))),
           const SizedBox(width: 12),
           Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text(value, style: AppTextStyles.h2.copyWith(color: color, fontSize: 22)),
+            Text(value,
+                style: AppTextStyles.h2.copyWith(color: color, fontSize: 22)),
             Text(label, style: AppTextStyles.caption),
           ]),
         ],
@@ -293,14 +374,23 @@ class _StatusPill extends StatelessWidget {
   Widget build(BuildContext context) {
     Color c;
     switch (status) {
-      case 'Present': c = const Color(0xFF22C55E); break;
-      case 'Absent': c = const Color(0xFFEF4444); break;
-      default: c = const Color(0xFFF59E0B);
+      case 'Present':
+        c = const Color(0xFF22C55E);
+        break;
+      case 'Absent':
+        c = const Color(0xFFEF4444);
+        break;
+      default:
+        c = const Color(0xFFF59E0B);
     }
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-      decoration: BoxDecoration(color: c.withValues(alpha: 0.12), borderRadius: BorderRadius.circular(AppDims.pillRadius)),
-      child: Text(status, style: AppTextStyles.caption.copyWith(color: c, fontWeight: FontWeight.w600)),
+      decoration: BoxDecoration(
+          color: c.withValues(alpha: 0.12),
+          borderRadius: BorderRadius.circular(AppDims.pillRadius)),
+      child: Text(status,
+          style: AppTextStyles.caption
+              .copyWith(color: c, fontWeight: FontWeight.w600)),
     );
   }
 }

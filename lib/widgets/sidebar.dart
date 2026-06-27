@@ -162,7 +162,7 @@ class _AppSidebarState extends State<AppSidebar> {
             ),
           ),
           const SizedBox(height: AppDims.gapSm),
-          Text('Pooja Mishra', style: AppTextStyles.h3),
+          Text('Shikhar Bajpai', style: AppTextStyles.h3),
           const SizedBox(height: 6),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),

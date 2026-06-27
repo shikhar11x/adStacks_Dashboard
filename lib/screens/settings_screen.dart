@@ -16,7 +16,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool _twoFactor = false;
   String _language = 'English';
 
-  final _nameController = TextEditingController(text: 'Pooja Mishra');
+  final _nameController = TextEditingController(text: 'Shikhar Bajpai');
   final _emailController = TextEditingController(text: 'pooja@adstacks.in');
   final _phoneController = TextEditingController(text: '+91 98765 43210');
 
@@ -39,13 +39,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ]);
           }
           return Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Expanded(child: Column(children: [
+            Expanded(
+                child: Column(children: [
               _buildProfileCard(),
               const SizedBox(height: AppDims.gapLg),
               _buildSecuritySettings(),
             ])),
             const SizedBox(width: AppDims.gapLg),
-            Expanded(child: Column(children: [
+            Expanded(
+                child: Column(children: [
               _buildNotificationSettings(),
               const SizedBox(height: AppDims.gapLg),
               _buildAppPreferences(),
@@ -70,15 +72,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
               children: [
                 CircleAvatar(
                   radius: 40,
-                  backgroundColor: AppColors.primaryPurple.withValues(alpha: 0.15),
-                  child: const Icon(Icons.person_rounded, size: 44, color: AppColors.primaryPurple),
+                  backgroundColor:
+                      AppColors.primaryPurple.withValues(alpha: 0.15),
+                  child: const Icon(Icons.person_rounded,
+                      size: 44, color: AppColors.primaryPurple),
                 ),
                 Positioned(
-                  bottom: 0, right: 0,
+                  bottom: 0,
+                  right: 0,
                   child: Container(
-                    width: 28, height: 28,
-                    decoration: const BoxDecoration(color: AppColors.primaryPurple, shape: BoxShape.circle),
-                    child: const Icon(Icons.camera_alt_rounded, size: 16, color: Colors.white),
+                    width: 28,
+                    height: 28,
+                    decoration: const BoxDecoration(
+                        color: AppColors.primaryPurple, shape: BoxShape.circle),
+                    child: const Icon(Icons.camera_alt_rounded,
+                        size: 16, color: Colors.white),
                   ),
                 ),
               ],
@@ -87,9 +95,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
           const SizedBox(height: 20),
           _buildTextField('Full Name', _nameController, Icons.badge_rounded),
           const SizedBox(height: 12),
-          _buildTextField('Email Address', _emailController, Icons.email_rounded),
+          _buildTextField(
+              'Email Address', _emailController, Icons.email_rounded),
           const SizedBox(height: 12),
-          _buildTextField('Phone Number', _phoneController, Icons.phone_rounded),
+          _buildTextField(
+              'Phone Number', _phoneController, Icons.phone_rounded),
           const SizedBox(height: 12),
           // Department (dropdown)
           DropdownButtonFormField<String>(
@@ -97,12 +107,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
             decoration: InputDecoration(
               labelText: 'Department',
               prefixIcon: const Icon(Icons.business_rounded, size: 18),
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
-              contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+              contentPadding:
+                  const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
             ),
-            items: ['Management', 'Engineering', 'Creative', 'Sales', 'HR', 'Finance', 'Marketing']
-                .map((d) => DropdownMenuItem(value: d, child: Text(d)))
-                .toList(),
+            items: [
+              'Management',
+              'Engineering',
+              'Creative',
+              'Sales',
+              'HR',
+              'Finance',
+              'Marketing'
+            ].map((d) => DropdownMenuItem(value: d, child: Text(d))).toList(),
             onChanged: (_) {},
           ),
         ],
@@ -110,14 +128,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  Widget _buildTextField(String label, TextEditingController controller, IconData icon) {
+  Widget _buildTextField(
+      String label, TextEditingController controller, IconData icon) {
     return TextField(
       controller: controller,
       decoration: InputDecoration(
         labelText: label,
         prefixIcon: Icon(icon, size: 18),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
-        contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
+        contentPadding:
+            const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
       ),
     );
   }
@@ -169,17 +189,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 12),
             child: Row(children: [
-              const Icon(Icons.language_rounded, size: 20, color: AppColors.textSecondary),
+              const Icon(Icons.language_rounded,
+                  size: 20, color: AppColors.textSecondary),
               const SizedBox(width: 12),
-              Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text('Language', style: AppTextStyles.bodyDark.copyWith(fontWeight: FontWeight.w600)),
-                Text('App display language', style: AppTextStyles.caption),
-              ])),
+              Expanded(
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                    Text('Language',
+                        style: AppTextStyles.bodyDark
+                            .copyWith(fontWeight: FontWeight.w600)),
+                    Text('App display language', style: AppTextStyles.caption),
+                  ])),
               DropdownButton<String>(
                 value: _language,
                 underline: const SizedBox.shrink(),
                 items: ['English', 'Hindi', 'Marathi']
-                    .map((l) => DropdownMenuItem(value: l, child: Text(l, style: AppTextStyles.body)))
+                    .map((l) => DropdownMenuItem(
+                        value: l, child: Text(l, style: AppTextStyles.body)))
                     .toList(),
                 onChanged: (v) => setState(() => _language = v!),
               ),
@@ -230,7 +257,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           style: OutlinedButton.styleFrom(
             side: const BorderSide(color: AppColors.primaryPurple),
             foregroundColor: AppColors.primaryPurple,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDims.pillRadius)),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(AppDims.pillRadius)),
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           ),
           child: const Text('Cancel'),
@@ -241,7 +269,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.primaryPurple,
             foregroundColor: Colors.white,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDims.pillRadius)),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(AppDims.pillRadius)),
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           ),
           child: const Text('Save Changes'),
@@ -252,7 +281,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
 }
 
 class _SettingsCard extends StatelessWidget {
-  const _SettingsCard({required this.title, required this.icon, required this.child});
+  const _SettingsCard(
+      {required this.title, required this.icon, required this.child});
   final String title;
   final IconData icon;
   final Widget child;
@@ -264,15 +294,23 @@ class _SettingsCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(AppDims.cardRadius),
-        boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10, offset: const Offset(0, 4))],
+        boxShadow: [
+          BoxShadow(
+              color: Colors.black.withValues(alpha: 0.05),
+              blurRadius: 10,
+              offset: const Offset(0, 4))
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(children: [
             Container(
-              width: 36, height: 36,
-              decoration: BoxDecoration(color: AppColors.primaryPurple.withValues(alpha: 0.12), borderRadius: BorderRadius.circular(10)),
+              width: 36,
+              height: 36,
+              decoration: BoxDecoration(
+                  color: AppColors.primaryPurple.withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(10)),
               child: Icon(icon, color: AppColors.primaryPurple, size: 18),
             ),
             const SizedBox(width: 12),
@@ -289,7 +327,11 @@ class _SettingsCard extends StatelessWidget {
 }
 
 class _SwitchTile extends StatelessWidget {
-  const _SwitchTile({required this.label, required this.subtitle, required this.value, required this.onChanged});
+  const _SwitchTile(
+      {required this.label,
+      required this.subtitle,
+      required this.value,
+      required this.onChanged});
   final String label, subtitle;
   final bool value;
   final ValueChanged<bool> onChanged;
@@ -299,8 +341,12 @@ class _SwitchTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(children: [
-        Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(label, style: AppTextStyles.bodyDark.copyWith(fontWeight: FontWeight.w600)),
+        Expanded(
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(label,
+              style:
+                  AppTextStyles.bodyDark.copyWith(fontWeight: FontWeight.w600)),
           Text(subtitle, style: AppTextStyles.caption),
         ])),
         Switch(
@@ -314,7 +360,11 @@ class _SwitchTile extends StatelessWidget {
 }
 
 class _ActionTile extends StatelessWidget {
-  const _ActionTile({required this.label, required this.subtitle, required this.icon, required this.onTap});
+  const _ActionTile(
+      {required this.label,
+      required this.subtitle,
+      required this.icon,
+      required this.onTap});
   final String label, subtitle;
   final IconData icon;
   final VoidCallback onTap;
@@ -329,11 +379,17 @@ class _ActionTile extends StatelessWidget {
         child: Row(children: [
           Icon(icon, size: 20, color: AppColors.textSecondary),
           const SizedBox(width: 12),
-          Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text(label, style: AppTextStyles.bodyDark.copyWith(fontWeight: FontWeight.w600)),
-            Text(subtitle, style: AppTextStyles.caption),
-          ])),
-          const Icon(Icons.arrow_forward_ios_rounded, size: 14, color: AppColors.textSecondary),
+          Expanded(
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                Text(label,
+                    style: AppTextStyles.bodyDark
+                        .copyWith(fontWeight: FontWeight.w600)),
+                Text(subtitle, style: AppTextStyles.caption),
+              ])),
+          const Icon(Icons.arrow_forward_ios_rounded,
+              size: 14, color: AppColors.textSecondary),
         ]),
       ),
     );

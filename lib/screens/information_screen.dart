@@ -203,7 +203,7 @@ class _InformationScreenState extends State<InformationScreen>
       ('Company Name', 'Adstacks Pvt. Ltd.', Icons.business_rounded),
       ('Founded', '2018', Icons.calendar_today_rounded),
       ('Industry', 'Digital Marketing & Technology', Icons.computer_rounded),
-      ('CEO', 'Pooja Mishra', Icons.person_rounded),
+      ('CEO', 'Shikhar Bajpai', Icons.person_rounded),
       ('Headquarters', 'Mumbai, Maharashtra, India', Icons.location_on_rounded),
       ('Employees', '120+', Icons.people_rounded),
       ('Website', 'www.adstacks.in', Icons.language_rounded),

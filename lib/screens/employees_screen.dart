@@ -14,7 +14,7 @@ class _Employee {
 }
 
 const List<_Employee> _kEmployees = [
-  _Employee(name: 'Pooja Mishra', role: 'Admin', department: 'Management', status: 'Active', joinDate: '01 Jan 2021', salary: '₹85,000'),
+  _Employee(name: 'Shikhar bajpai', role: 'Admin', department: 'Management', status: 'Active', joinDate: '01 Jan 2021', salary: '₹85,000'),
   _Employee(name: 'Rahul Sharma', role: 'Developer', department: 'Engineering', status: 'Active', joinDate: '15 Mar 2022', salary: '₹72,000'),
   _Employee(name: 'Anjali Verma', role: 'Designer', department: 'Creative', status: 'Active', joinDate: '10 Jun 2022', salary: '₹68,000'),
   _Employee(name: 'Vikram Singh', role: 'Manager', department: 'Sales', status: 'On Leave', joinDate: '05 Feb 2020', salary: '₹90,000'),
