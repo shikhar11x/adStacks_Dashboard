@@ -1,64 +1,80 @@
-# 🚀 Adstacks Dashboard
+# 🚀 AdStacks Dashboard
 
-A modern, responsive **Flutter Web & Mobile Dashboard** for office management — built with clean architecture, smooth navigation, and a polished purple-themed UI.
+A modern, responsive **Flutter Dashboard** designed for office management. Built with clean architecture, reusable widgets, and a polished purple-themed interface that works seamlessly across **Web, Tablet, and Mobile**.
 
 ---
 
 ## 📸 Preview
 
-> Home • Employees • Attendance • Summary • Information • Settings
+### 💻 Desktop
+
+| Home | Employees |
+|-------|-----------|
+| ![Home](preview/pc1.png) | ![Employees](preview/pc2.png) |
+
+| Attendance | Summary |
+|------------|---------|
+| ![Attendance](preview/pc3.png) | ![Summary](preview/pc4.png) |
+
+| Information | Settings |
+|-------------|----------|
+| ![Information](preview/pc5.png) | ![Settings](preview/pc6.png) |
+
+---
+
+### 📱 Mobile
+
+<p align="center">
+  <img src="preview/mob1.jpg" width="180"/>
+  <img src="preview/mob2.jpg" width="180"/>
+  <img src="preview/mob3.jpg" width="180"/>
+  <img src="preview/mob4.jpg" width="180"/>
+</p>
+
+<p align="center">
+  <img src="preview/mob5.jpg" width="180"/>
+  <img src="preview/mob6.jpg" width="180"/>
+  <img src="preview/mob7.jpg" width="180"/>
+  <img src="preview/mob8.jpg" width="180"/>
+</p>
 
 ---
 
 ## ✨ Features
 
-- 🏠 **Home Dashboard** — KPI banner, all projects, top creators, performance chart, calendar, birthday & anniversary cards
-- 👥 **Employees** — Searchable employee table with status badges and stat cards
-- 🗓️ **Attendance** — Monthly calendar with color-coded attendance, employee selector, today's log
-- 📊 **Summary** — Project progress bars, team performance, recent activity feed
-- ℹ️ **Information** — Announcements, company info, and policy documents (tabbed)
-- ⚙️ **Settings** — Profile editor, notification toggles, security options, app preferences
-- 📱 **Fully Responsive** — Desktop (3-column) → Tablet → Mobile (drawer sidebar)
+- Responsive layout for **Desktop, Tablet & Mobile**
+- Modern office dashboard UI
+- Interactive analytics & performance charts
+- Employee management module
+- Attendance tracking with calendar
+- Project summary dashboard
+- Company announcements & information
+- Settings & profile management
+- Smooth navigation with adaptive sidebar
+- Reusable widget-based architecture
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠 Tech Stack
 
-| Package | Version | Purpose |
-|---|---|---|
-| `flutter` | SDK | Core framework |
-| `google_fonts` | ^8.1.0 | Inter typography |
-| `fl_chart` | ^1.2.0 | Performance line chart |
-| `table_calendar` | ^3.2.0 | Calendar widget |
-| `intl` | ^0.20.2 | Date formatting |
+- **Flutter**
+- **Dart**
+- **Google Fonts**
+- **fl_chart**
+- **table_calendar**
+- **intl**
 
 ---
 
-## 📁 Project Structure
+## 📂 Project Structure
 
-```
+```text
 lib/
 ├── main.dart
 ├── theme/
-│   └── app_theme.dart          # Colors, gradients, text styles, dimensions
 ├── utils/
-│   └── responsive.dart         # Breakpoints & responsive helpers
 ├── widgets/
-│   ├── sidebar.dart            # Left nav with profile, menu, workspaces
-│   ├── top_bar.dart            # Search bar + icon buttons + avatar
-│   ├── top_banner.dart         # Gradient hero card
-│   ├── all_projects_card.dart  # Projects list card
-│   ├── top_creators_card.dart  # Dark navy creators table
-│   ├── performance_chart.dart  # fl_chart line chart
-│   ├── calendar_card.dart      # Mini calendar (table_calendar)
-│   └── birthday_anniversary_card.dart
 └── screens/
-    ├── dashboard_screen.dart   # Main shell — responsive layout + navigation
-    ├── employees_screen.dart
-    ├── attendance_screen.dart
-    ├── summary_screen.dart
-    ├── information_screen.dart
-    └── settings_screen.dart
 ```
 
 ---
@@ -66,88 +82,95 @@ lib/
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Flutter SDK `>=3.27.4`
-- Dart SDK `>=3.0.0`
-- Chrome (for web) or an Android/iOS emulator
+
+- Flutter SDK >= 3.27.4
+- Dart SDK >= 3.0.0
 
 ### Installation
 
 ```bash
-# 1. Clone the repo
-git clone https://github.com/your-username/adstacks_dashboard.git
-cd adstacks_dashboard
+git clone https://github.com/shikhar11x/adStacks_Dashboard.git
 
-# 2. Install dependencies
+cd adStacks_Dashboard
+
 flutter pub get
 
-# 3. Run on Chrome (web)
-flutter run -d chrome
-
-# 4. Run on device/emulator
 flutter run
 ```
 
----
+### Run on Web
 
-## 🌐 Deployment
-
-### Vercel
 ```bash
-flutter build web
-# Drag & drop the build/web folder onto vercel.com
-# Or use Vercel CLI:
-cd build/web
-vercel --prod
-```
-
-### Firebase Hosting
-```bash
-flutter build web
-firebase init hosting   # set public dir to: build/web
-firebase deploy
+flutter run -d chrome
 ```
 
 ---
 
-## 📐 Responsive Breakpoints
+## 🌐 Live Demo
 
-| Breakpoint | Layout |
-|---|---|
-| `< 700px` | Mobile — sidebar in Drawer, stacked layout |
-| `700–1099px` | Tablet — fixed sidebar, right rail below main |
-| `≥ 1100px` | Desktop — full 3-column layout |
+🔗 **Vercel**
+
+https://ad-stacks-dashboard-shikhar11x.vercel.app/
+
+---
+
+## 📐 Responsive Layout
+
+| Device | Layout |
+|---------|--------|
+| Mobile | Drawer Navigation |
+| Tablet | Fixed Sidebar |
+| Desktop | Three Column Dashboard |
 
 ---
 
 ## 🎨 Design System
 
-| Token | Value |
-|---|---|
-| Primary Purple | `#6C5CE7` |
-| Card Radius | `20px` |
-| Sidebar Width | `260px` (desktop) / `220px` (tablet) |
-| Font | Inter (via Google Fonts) |
+| Property | Value |
+|----------|-------|
+| Primary Color | `#6C5CE7` |
+| Border Radius | `20px` |
+| Typography | Google Fonts (Inter) |
+| Theme | Modern Purple Dashboard |
 
 ---
 
-## 📝 Assignment Context
+## 📦 Packages Used
 
-This project was built as a Flutter assignment to demonstrate:
-- Responsive layout design
-- Widget composition and reusability
-- State management with `StatefulWidget`
-- Third-party package integration (`fl_chart`, `table_calendar`)
-- Clean folder/file architecture
+| Package | Version |
+|----------|---------|
+| flutter | SDK |
+| google_fonts | ^8.1.0 |
+| fl_chart | ^1.2.0 |
+| table_calendar | ^3.2.0 |
+| intl | ^0.20.2 |
 
 ---
 
-## 👩‍💻 Author
+## 🎯 Assignment Highlights
 
-**Shikhar Bajpai**  
-Flutter Developer 
+This project demonstrates:
+
+- Responsive Flutter UI
+- Clean architecture
+- Reusable widgets
+- Adaptive navigation
+- State management
+- Third-party package integration
+- Modern dashboard design principles
+
+---
+
+## 👨‍💻 Author
+
+**Shikhar Bajpai**
+
+Flutter Developer
+
+- GitHub: https://github.com/shikhar11x
 
 ---
 
 ## 📄 License
 
-This project is for educational purposes.
+This project was developed as part of a Flutter technical assignment and is intended for educational and portfolio purposes.
