@@ -4,42 +4,6 @@ A modern, responsive **Flutter Dashboard** designed for office management. Built
 
 ---
 
-## 📸 Preview
-
-### 💻 Desktop
-
-| Home | Employees |
-|-------|-----------|
-| ![Home](preview/pc1.png) | ![Employees](preview/pc2.png) |
-
-| Attendance | Summary |
-|------------|---------|
-| ![Attendance](preview/pc3.png) | ![Summary](preview/pc4.png) |
-
-| Information | Settings |
-|-------------|----------|
-| ![Information](preview/pc5.png) | ![Settings](preview/pc6.png) |
-
----
-
-### 📱 Mobile
-
-<p align="center">
-  <img src="preview/mob1.jpg" width="180"/>
-  <img src="preview/mob2.jpg" width="180"/>
-  <img src="preview/mob3.jpg" width="180"/>
-  <img src="preview/mob4.jpg" width="180"/>
-</p>
-
-<p align="center">
-  <img src="preview/mob5.jpg" width="180"/>
-  <img src="preview/mob6.jpg" width="180"/>
-  <img src="preview/mob7.jpg" width="180"/>
-  <img src="preview/mob8.jpg" width="180"/>
-</p>
-
----
-
 ## ✨ Features
 
 - Responsive layout for **Desktop, Tablet & Mobile**
